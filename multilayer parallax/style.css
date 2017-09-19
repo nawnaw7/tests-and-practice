@@ -1,0 +1,85 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#test {
+    height: 1000px;
+    overflow: hidden;
+    position: relative;
+}
+
+.layer {
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 1000px;
+    position: absolute;
+    z-index: -1;
+}
+
+
+#test, .layer {
+    min-height: 800px;
+}
+
+.layer-bg {
+    background-image: url(header.jpg);
+    background-size: cover;
+}
+
+.layer-1 {
+    background-image: url(clouds1.png);
+    background-position: left top;
+}
+
+
+.layer-2 {
+    background-image: url(clouds1.png);
+    background-position: top right;
+}
+
+.layer-3 {
+    background-image: url(clouds1.png);
+    background-position: top center;
+}
+
+.layer-4 {
+    background-image: url(butterfly.png);
+    background-position: center left;
+}
+
+
+.layer-5 {
+    background-image: url(fog1.png);
+    background-position: left center;
+}
+
+.layer-overlay {
+    background-image: url(fog1.png);
+    background-position: right center;
+}
+
+
+.content, h1 {
+    width: 500px;
+    margin: 0 auto;
+    opacity: 1;
+
+}
+
+
+
+/*
+@media only screen and (max-width: 768px) {
+    #hero {
+        display: none;
+    }
+
+    #hero-mobile {
+        display: block;
+    }
+}*/
+
