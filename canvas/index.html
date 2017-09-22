@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas practice</title>
+    <style>
+        canvas {
+            border: 3px #CCC solid;
+        }
+
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" height="450" width="450"></canvas>
+
+    <script>
+        var mainCanvas = document.querySelector("#myCanvas");
+        var mainContext = mainCanvas.getContext("2d");
+
+        var canvasWidth = mainCanvas.width;
+        var canvasHeight = mainCanvas.height;
+        
+        var angle = 0;
+        
+        
+        var requestAnimationFrame = window.requestAnimationFrame || 
+            window.mozRequestAnimationFrame || 
+            window.webkitRequestAnimationFrame || 
+            window.msRequestAnimationFrame;
+        
+
+        var colors = ['#e5aeae', '#e59797', '#e57070', '#e53b3b',  '#e50606'];
+        
+        var index = 0;
+        var colorIndex = colors[index];
+        
+
+        function drawCircle() {
+            mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // color in the background
+            mainContext.fillStyle = "#eae3e3";
+            mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
+
+            // draw the circle
+            mainContext.beginPath();
+
+            var radius = 25 + 130 * Math.abs(Math.cos(angle));
+            mainContext.arc(225, 225, radius, 0, Math.PI * 2, false);
+            mainContext.closePath();
+
+            // color in the circle
+            mainContext.fillStyle = colorIndex;
+            mainContext.fill();
+            
+            // Change angle
+            angle += Math.PI / 64;
+            
+            index += 1;
+            
+            
+            
+            requestAnimationFrame(drawCircle);
+        }
+        
+        drawCircle();
+
+    </script>
+</body>
+
+</html>
